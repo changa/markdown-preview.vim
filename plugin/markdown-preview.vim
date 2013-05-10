@@ -214,8 +214,12 @@ function! MarkdownPreview()
 
   call WriteFileWithRuby(l:converted, l:tmp_file, l:file_name.'.'.l:file_extension)
 
-  if ((!l:tmp_exists || g:MarkdownPreviewAlwaysOpen == 1) && has("mac"))
-    silent! execute '!open '.l:tmp_file
+  if (!l:tmp_exists || g:MarkdownPreviewAlwaysOpen == 1)
+    if has("mac")
+      silent! execute '!open '.l:tmp_file
+    elseif (has('unix') && executable('xdg-open'))
+      silent! execute '!xdg-open '.l:tmp_file
+    endif
   endif
 endfunction
 

@@ -21,6 +21,7 @@ Markdown Preview                        *markdown-preview*
     Temporary File Directory            |markdown-preview-tmpdir|
     Default Styles                      |markdown-preview-defaultstyles|
     User Styles                         |markdown-preview-userstyles|
+    Refresh Delay                       |markdown-preview-refresh-delay|
     Default Theme                       |markdown-preview-defaulttheme|
     Always Open                         |markdown-preview-alwaysopen|
 6. Themes                               |markdown-preview-themes|
@@ -116,6 +117,10 @@ g:MarkdownPreviewUserStyles             *markdown-preview-userstyles*
     let g:MarkdownPreviewUserStyles = ~/Sites/themes/markdown/
 
   Setting up themes is explained in more detail below.
+
+g:MarkdownPreviewRefreshDelay           markdown-preview-refresh-delay
+  This setting sets a refresh interval in the generated HTML page. The default
+  delay is 2 seconds.
 
 g:MarkdownPreviewDefaultTheme           *markdown-preview-defaulttheme*
   The default theme converted markdown themes will start with after they

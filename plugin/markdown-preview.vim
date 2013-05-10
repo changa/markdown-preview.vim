@@ -73,6 +73,10 @@ if !exists("g:MarkdownPreviewAlwaysOpen")
   let g:MarkdownPreviewAlwaysOpen = 0
 endif
 
+if !exists("g:MarkdownPreviewRefreshDelay")
+  let g:MarkdownPreviewRefreshDelay = 2
+endif
+
 " ------------------------------------------------------------------------------
 "  Internal Utility functions for setting stylesheet information at startup
 " ------------------------------------------------------------------------------
@@ -130,6 +134,7 @@ ruby << EOF
     <html lang="en">
       <head>
         <meta charset="utf-8"/>
+        <meta http-equiv="refresh" content="#{VIM::evaluate('g:MarkdownPreviewRefreshDelay')}">
         <style>* {margin:0; padding:0;}</style>
         #{VIM::evaluate('s:default_styles_sheets')}
         #{VIM::evaluate('s:user_styles_sheets')}
